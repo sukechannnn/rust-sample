@@ -13,5 +13,16 @@ fn main() {
     let b: [i32; 3] = [0; 3];
     a[1] = b[1];
     println!("{:?}", &a[0..3]);
+
+    struct Person {
+        name: String,
+        age: u32,
+    }
+    let person = Person {
+        name: String::from("John"),
+        age: 8
+    };
+    println!("{:?}", format!("{}: {}", "person", person.name));
+    println!("{:?}", format!("{}: {}", "age", person.age));
 }
 
