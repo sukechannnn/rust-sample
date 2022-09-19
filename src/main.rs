@@ -84,4 +84,24 @@ fn main() {
     println!("code: {}", result.unwrap_or(-1));
     let result: Result<i32, String> = Err("error".to_string());
     println!("code: {}", result.unwrap_or(-1));
+
+    fn print_code(code: i32) -> Result<(), String> {
+        println!("print_code: {}", code);
+        Ok(())
+    }
+    let result: Result<i32, String> = Ok(200);
+    let _ = result.and_then(print_code);
+    let result: Result<i32, String> = Err("error".to_string());
+    let _ = result.and_then(print_code);
+
+    fn error_handling(result: Result<i32, String>) -> Result<(), String> {
+        let code = result?;
+        println!("error_handling: {}", code);
+        Ok(())
+    }
+    let result: Result<i32, String> = Ok(200);
+    let _ = error_handling(result);
+    let result: Result<i32, String> = Err("ERROR".to_string());
+    let error = error_handling(result);
+    println!("error_handling error: {}", error.unwrap_err());
 }
