@@ -148,4 +148,20 @@ fn main() {
     }
     println!("{}", abs(1));
     println!("{}", abs(-1));
+
+    // loop
+    let mut count = 0;
+    'main: loop {
+        println!("main loop start");
+        'sub: loop {
+            println!("sub loop start");
+
+            if count == 1 {
+                break 'main;
+            }
+            println!("sub loop end");
+            count += 1;
+        }
+        println!("main loop end")
+    }
 }
