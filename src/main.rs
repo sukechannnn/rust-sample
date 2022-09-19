@@ -128,4 +128,24 @@ fn main() {
     print(Box::new(byte_array));
     let byte_array = [b'w', b'o', b'r', b'l', b'd', b'!'];
     print(Box::new(byte_array));
+
+    // if
+    let number = 1;
+    if 0 < number {
+        println!("0 < number");
+    } else if number < 0 {
+        println!("number < 0");
+    } else {
+        println!("0 == number");
+    }
+
+    fn abs(num: i32) -> i32 {
+        if num < 0 {
+            -num
+        } else {
+            num
+        }
+    }
+    println!("{}", abs(1));
+    println!("{}", abs(-1));
 }
