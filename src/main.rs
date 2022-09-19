@@ -104,4 +104,19 @@ fn main() {
     let result: Result<i32, String> = Err("ERROR".to_string());
     let error = error_handling(result);
     println!("error_handling error: {}", error.unwrap_err());
+
+    // Vec
+    let mut v1 = vec![1, 2, 3, 4, 5];
+    for v in v1.clone() {
+        println!("{}", v.clone())
+    }
+    for v in v1.iter_mut() {
+        *v = *v + 1;
+    }
+    println!("{:?}", v1);
+
+    let vec = vec![1, 2, 3];
+    if let Some(num) = vec.get(0) {
+        println!("vec: {}", num);
+    }
 }
